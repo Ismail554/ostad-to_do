@@ -95,7 +95,6 @@ class _ModuleSettingScreenState extends State<ModuleSettingScreen> {
               height: 56,
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle save action
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF4D9EFF),
@@ -125,7 +124,7 @@ class _ModuleSettingScreenState extends State<ModuleSettingScreen> {
 class CustomToggleButton extends StatelessWidget {
   final String option1;
   final String option2;
-  final String selectedOption;
+  final String? selectedOption;
   final ValueChanged<String> onChanged;
 
   const CustomToggleButton({

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/views/color_shades.dart';
+import 'package:to_do/views/listview_menu.dart';
 import 'package:to_do/views/optional_module.dart';
 
 class BasicWidget extends StatefulWidget {
@@ -41,6 +42,18 @@ class _BasicWidgetState extends State<BasicWidget> {
                 );
               },
               child: Text("Optional Module"),
+            ),
+            SizedBox(height: 2),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FoodListPage(),
+                  ),
+                );
+              },
+              child: Text("ListView Menu card."),
             ),
 
             Expanded(

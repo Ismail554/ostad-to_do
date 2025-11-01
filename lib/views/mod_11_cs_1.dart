@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do/views/color_shades.dart';
 import 'package:to_do/views/listview_menu.dart';
 import 'package:to_do/views/optional_module.dart';
+import 'package:to_do/views/random.dart';
 
 class BasicWidget extends StatefulWidget {
   const BasicWidget({super.key});
@@ -48,12 +49,20 @@ class _BasicWidgetState extends State<BasicWidget> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => FoodListPage(),
-                  ),
+                  MaterialPageRoute(builder: (context) => FoodListPage()),
                 );
               },
               child: Text("ListView Menu card."),
+            ),
+            SizedBox(height: 2),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ListSeparated()),
+                );
+              },
+              child: Text("ListView Separated card."),
             ),
 
             Expanded(

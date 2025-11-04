@@ -42,19 +42,29 @@ class _Class1APIState extends State<Class1API> {
         child: ListView.builder(
           itemBuilder: (context, index) {
             final user = users[index];
-            return ListTile(
-              leading: CircleAvatar(child: Text('${index + 1} ')),
-              title: Text(users[index]['name']),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Username: ${user['username']}"),
-                  Text("Email: ${user['email']}"),
-                  Text("Address: ${user['address']['city']}"),
+            return Card(
+              child: ListTile(
+                leading: CircleAvatar(child: Text('${index + 1} ')),
+                title: Text(
+                  users[index]['name'],
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 18,
+                    color: Colors.lime,
+                  ),
+                ),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Username: ${user['username']}"),
 
-                  Text("Phone: ${user['phone']}"),
-                  Text("Website: ${user['website']}"),
-                ],
+                    Text("Email: ${user['email']}"),
+                    Text("Address: ${user['address']['city']}"),
+
+                    Text("Phone: ${user['phone']}"),
+                    Text("Website: ${user['website']}"),
+                  ],
+                ),
               ),
             );
           },

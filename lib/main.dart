@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:to_do/onboading/onboarding.dart';
 
 void main() {
@@ -25,16 +26,23 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Your App Name',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-      ),
-      home: OnboardingPage(
-        onFinish: () {
-          // This callback is not used here, but in OnboardingPage
-        },
-      ),
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          title: 'Your App Name',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+          ),
+          home: OnboardingPage(
+            onFinish: () {
+              // This callback is not used here, but in OnboardingPage
+            },
+          ),
+        );
+      },
     );
   }
 }

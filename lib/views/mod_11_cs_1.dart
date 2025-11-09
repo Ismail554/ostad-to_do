@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/module/module_16/class_1.dart';
+import 'package:to_do/module/module_16/class_2.dart';
 import 'package:to_do/views/color_shades.dart';
 import 'package:to_do/views/listview_menu.dart';
 import 'package:to_do/views/optional_module.dart';
@@ -74,6 +75,16 @@ class _BasicWidgetState extends State<BasicWidget> {
                 );
               },
               child: Text("API"),
+            ),
+            SizedBox(height: 2),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CRUD()),
+                );
+              },
+              child: Text("CRUD"),
             ),
 
             Expanded(

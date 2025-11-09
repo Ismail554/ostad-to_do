@@ -15,9 +15,7 @@ class _ListSeparatedState extends State<ListSeparated> {
         child: ListView.separated(
           itemCount: 10,
           itemBuilder: (context, index) {
-            return ListTile(
-              title: Text('Item $index'),
-            );
+            return ListTile(title: Text('Item $index'));
           },
           separatorBuilder: (context, index) {
             return Divider();

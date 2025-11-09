@@ -94,8 +94,7 @@ class _ModuleSettingScreenState extends State<ModuleSettingScreen> {
               width: double.infinity,
               height: 56,
               child: ElevatedButton(
-                onPressed: () {
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF4D9EFF),
                   shape: RoundedRectangleBorder(

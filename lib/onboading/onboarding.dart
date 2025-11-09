@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:to_do/const/app_colors.dart';
+import 'package:to_do/onboading/onboarding_screen1.dart';
+import 'package:to_do/onboading/onboarding_screen2.dart';
+import 'package:to_do/onboading/onboarding_screen3.dart';
+import 'package:to_do/views/choose_user.dart';
+import 'package:to_do/views/custom_button.dart';
+
+class OnboardingPage extends StatefulWidget {
+  /// Called when onboarding is finished (user tapped Done or Skip)
+  final VoidCallback? onFinish;
+
+  const OnboardingPage({super.key, this.onFinish});
+
+  @override
+  State<OnboardingPage> createState() => _OnboardingPageState();
+}
+
+class _OnboardingPageState extends State<OnboardingPage> {
+  final PageController _controller = PageController();
+  int _index = 0;
+
+  final List<Widget> _pages = const [
+    OnboardingScreen1(),
+    OnboardingScreen2(),
+    OnboardingScreen3(),
+  ];
+
+  void _next() {
+    if (_index < _pages.length - 1) {
+      _controller.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const ChooseUser()),
+      );
+      widget.onFinish?.call();
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.white,
+      body: Column(
+        children: [
+          Expanded(
+            child: PageView(
+              controller: _controller,
+              onPageChanged: (i) => setState(() => _index = i),
+              children: _pages,
+            ),
+          ),
+          _buildDots(),
+          SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
+              child: CustomButton(
+                onTap: _next,
+                text: _index == _pages.length - 1 ? 'Get Started' : 'Next',
+                rightIcon: Icons.arrow_forward_ios,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDots() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(
+        _pages.length,
+        (i) => AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          margin: EdgeInsets.symmetric(horizontal: 6.w),
+          width: _index == i ? 40.w : 12.w,
+          height: 12.h,
+          decoration: BoxDecoration(
+            color: _index == i ? AppColors.primaryColor : Colors.grey[400],
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+        ),
+      ),
+    );
+  }
+}

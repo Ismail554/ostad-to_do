@@ -4,8 +4,8 @@ import 'package:to_do/const/app_colors.dart';
 import 'package:to_do/onboading/onboarding_screen1.dart';
 import 'package:to_do/onboading/onboarding_screen2.dart';
 import 'package:to_do/onboading/onboarding_screen3.dart';
-import 'package:to_do/views/choose_user.dart';
 import 'package:to_do/views/custom_button.dart';
+import 'package:to_do/views/mod_11_cs_1.dart';
 
 class OnboardingPage extends StatefulWidget {
   /// Called when onboarding is finished (user tapped Done or Skip)
@@ -36,7 +36,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     } else {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const ChooseUser()),
+        MaterialPageRoute(builder: (context) => BasicWidget()),
       );
       widget.onFinish?.call();
     }

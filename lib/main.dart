@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:to_do/views/mod_11_cs_1.dart'; // Import your main screen
+import 'package:to_do/onboading/onboarding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,10 +30,10 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
-      home: DebugPaintWrapper(
-        isDebugPaintEnabled: isDebugPaintEnabled,
-        toggleDebugPaint: toggleDebugPaint,
-        child: BasicWidget(), // Your actual home screen
+      home: OnboardingPage(
+        onFinish: () {
+          // This callback is not used here, but in OnboardingPage
+        },
       ),
     );
   }

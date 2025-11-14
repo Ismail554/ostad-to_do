@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:to_do/const/app_colors.dart';
 import 'package:to_do/const/app_spacing.dart';
 import 'package:to_do/const/app_string.dart';
@@ -20,10 +21,15 @@ class OnboardingScreen2 extends StatelessWidget {
           children: [
             Expanded(
               flex: 5,
-              child: Image.asset(
-                ImageAssets.onboardingTwo,
-                fit: BoxFit.contain,
-              ),
+              child:
+                  // Image.asset(
+                  //   ImageAssets.onboardingTwo,
+                  //   fit: BoxFit.contain,
+                  // ),
+                  SvgPicture.asset(
+                    ImageAssets.onboardingSvg3,
+                    fit: BoxFit.contain,
+                  ),
             ),
             AppSpacing.h24,
             Expanded(

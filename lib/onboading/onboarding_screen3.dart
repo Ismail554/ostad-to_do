@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:to_do/const/app_colors.dart';
 import 'package:to_do/const/app_string.dart';
 import 'package:to_do/const/assets_manager.dart';
@@ -15,7 +16,9 @@ class OnboardingScreen3 extends StatelessWidget {
       children: [
         SizedBox(
           width: double.infinity,
-          child: Image.asset(ImageAssets.onboardingThree, fit: BoxFit.cover),
+          child:
+              //  Image.asset(ImageAssets.onboardingThree, fit: BoxFit.cover),
+              SvgPicture.asset(ImageAssets.onboardingSvg3, fit: BoxFit.contain),
         ),
         Text(
           AppString.onboardingTitleThree,

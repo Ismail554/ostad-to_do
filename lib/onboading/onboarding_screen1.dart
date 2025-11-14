@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:to_do/const/app_colors.dart';
 import 'package:to_do/const/app_spacing.dart';
 import 'package:to_do/const/app_string.dart';
@@ -18,48 +19,40 @@ class OnboardingScreen1 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
-              flex: 5,
-              child: Image.asset(
-                ImageAssets.onboardingOne,
-                fit: BoxFit.contain,
-              ),
-            ),
+            Icon(Icons.ballot),
+            Image.asset("assets/images/onboarding_one.png"),
             AppSpacing.h24,
-            Expanded(
-              flex: 3,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    AppString.onboardingTitleOne,
-                    style: FontManager.titleStyle
-                        .copyWith(
-                          color: AppColors.black,
-                          fontWeight: FontWeight.w400,
-                          height: 1.2,
-                        )
-                        .merge(
-                          const TextStyle(
-                            fontFamilyFallback: ['Poppins', 'sans-serif'],
-                          ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  AppString.onboardingTitleOne,
+                  style: FontManager.titleStyle
+                      .copyWith(
+                        color: AppColors.black,
+                        fontWeight: FontWeight.w400,
+                        height: 1.2,
+                      )
+                      .merge(
+                        const TextStyle(
+                          fontFamilyFallback: ['Poppins', 'sans-serif'],
                         ),
-                    textAlign: TextAlign.center,
-                  ),
-                  AppSpacing.h8,
-                  Text(
-                    AppString.onboardingSubTitleOne,
-                    style: FontManager.subtitle
-                        .copyWith(color: AppColors.grey)
-                        .merge(
-                          const TextStyle(
-                            fontFamilyFallback: ['Nunito', 'sans-serif'],
-                          ),
+                      ),
+                  textAlign: TextAlign.center,
+                ),
+                AppSpacing.h8,
+                Text(
+                  AppString.onboardingSubTitleOne,
+                  style: FontManager.subtitle
+                      .copyWith(color: AppColors.grey)
+                      .merge(
+                        const TextStyle(
+                          fontFamilyFallback: ['Nunito', 'sans-serif'],
                         ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
+                      ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ],
         ),
